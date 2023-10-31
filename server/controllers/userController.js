@@ -3,6 +3,7 @@ import { v2 as cloudinary } from "cloudinary";
 import cookieToken from "../utils/cookieToken.js";
 import emailHelper from "../utils/emailHelper.js";
 import crypto from "crypto";
+import jwt from "jsonwebtoken";
 
 export const registerUser = async (req, res, next) => {
     try {
@@ -187,6 +188,28 @@ export const updatePassword = async (req, res, next) => {
         res.status(200).json({
             success: true,
             message: "Your password has been updated successfully! Please login."
+        })
+    } catch (error) {
+        return next(new Error(error.message));
+    }
+}
+
+export const getLoggedInUserProfile = async (req, res, next) => {
+    try {
+        let user = {};
+        const token = req.cookies.token || req.header("Authorization")?.replace("Bearer ", "");
+        if (!token) {
+            return res.status(404).json({
+                success: false,
+                user
+            })
+        }
+        const decodedToken = jwt.verify(token, process.env.JWT_SECRET);
+        req.user = await User.findById(decodedToken.id);
+        user = req.user;
+        return res.status(200).json({
+            success: true,
+            user
         })
     } catch (error) {
         return next(new Error(error.message));
