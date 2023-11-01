@@ -2,6 +2,7 @@ import express, { json } from "express";
 import dotenv from "dotenv";
 import cookieParser from "cookie-parser";
 import userRouter from "./routes/userRoutes.js";
+import blogRouter from "./routes/blogRouter.js";
 import fileUpload from "express-fileupload";
 
 export const app = express();
@@ -17,4 +18,5 @@ app.use(fileUpload({
 }))
 
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/blogs", blogRouter);
 
