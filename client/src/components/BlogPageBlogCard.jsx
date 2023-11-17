@@ -1,8 +1,6 @@
-import React from "react";
-
-const HomePageBlogCard = () => {
+const BlogPageBlogCard = () => {
   return (
-    <div className="bg-white border rounded-xl shadow-sm sm:flex dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] md:h-[200px] overflow-hidden md:my-20 md:mx-0 mx-4 my-4 w-[320px] md:w-[1400px]">
+    <div className="bg-white border rounded-xl shadow-sm sm:flex dark:bg-slate-900 dark:border-gray-700 dark:shadow-slate-700/[.7] md:h-[200px] overflow-hidden md:my-20 md:mx-0 mx-4 my-4">
       <div className="flex-shrink-0 relative w-full rounded-t-xl  overflow-hidden pt-[40%] sm:rounded-s-xl sm:max-w-[15rem] md:rounded-se-none md:max-w-xs">
         <img
           className="w-full h-full absolute top-0 start-0 object-cover"
@@ -30,4 +28,4 @@ const HomePageBlogCard = () => {
   );
 };
 
-export default HomePageBlogCard;
+export default BlogPageBlogCard;

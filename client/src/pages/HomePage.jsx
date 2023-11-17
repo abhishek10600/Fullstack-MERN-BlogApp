@@ -10,11 +10,13 @@ const HomePage = () => {
       <div className="w-full">
         <div className="md:max-w-[85rem] md:w-full md:mx-auto">
           <HomePageBlogContainer />
-          <HomePageBlogCard />
-          <HomePageBlogCard />
-          <HomePageBlogCard />
-          <HomePageBlogCard />
-          <HomePageBlogCard />
+          <div className="flex flex-col items-center md:block">
+            <HomePageBlogCard />
+            <HomePageBlogCard />
+            <HomePageBlogCard />
+            <HomePageBlogCard />
+            <HomePageBlogCard />
+          </div>
           <div className="my-10 flex justify-center">
             <Link to="/blogs" className="md:text-2xl">
               More Blogs...

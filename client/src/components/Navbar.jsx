@@ -12,7 +12,8 @@ const Navbar = () => {
             className="flex-none md:text-3xl font-semibold dark:text-white"
             to="/"
           >
-            TheBlog.<sapn className="text-blue-500">.</sapn>.
+            The<span className="text-blue-500">B</span>log.
+            <sapn className="text-blue-500">.</sapn>.
           </Link>
           <div className="sm:hidden">
             <button
