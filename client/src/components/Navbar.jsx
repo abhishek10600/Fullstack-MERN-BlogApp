@@ -9,11 +9,11 @@ const Navbar = () => {
       >
         <div className="flex items-center justify-between">
           <Link
-            className="flex-none md:text-3xl font-semibold dark:text-white"
+            className="flex-none md:text-3xl text-2xl font-semibold dark:text-white"
             to="/"
           >
             The<span className="text-blue-500">B</span>log.
-            <sapn className="text-blue-500">.</sapn>.
+            <span className="text-blue-500">.</span>.
           </Link>
           <div className="sm:hidden">
             <button
@@ -31,9 +31,9 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <line x1="3" x2="21" y1="6" y2="6" />
                 <line x1="3" x2="21" y1="12" y2="12" />
@@ -47,9 +47,9 @@ const Navbar = () => {
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
-                stroke-width="2"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
               >
                 <path d="M18 6 6 18" />
                 <path d="m6 6 12 12" />

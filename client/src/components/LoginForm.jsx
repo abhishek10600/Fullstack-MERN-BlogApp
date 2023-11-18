@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 const LoginForm = () => {
   return (
     <div className="form-container md:w-full md:my-20">
-      <form className="flex flex-col md:gap-8 md:my-5">
+      <form className="flex flex-col md:gap-8 gap-6 md:my-5 mx-4">
         <input
           type="email"
           className="p-4 sm:p-5 block w-full border-gray-200 rounded-lg text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-slate-900 dark:border-gray-700 dark:text-white dark:focus:ring-gray-600"
