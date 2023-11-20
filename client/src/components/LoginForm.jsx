@@ -1,7 +1,10 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
+import { UserContext } from "../context/UserContext";
 const LoginForm = () => {
+  const navigate = useNavigate();
+  const { setUser, setIsLoggedIn } = useContext(UserContext);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleLoginFormSubmit = async (ev) => {
@@ -21,7 +24,10 @@ const LoginForm = () => {
         }
       );
       if (res.data.success === true) {
+        setUser(res.data.user);
+        setIsLoggedIn(true);
         alert(res.data.message);
+        navigate("/");
       }
     } catch (error) {
       console.log(error.message);
@@ -57,6 +63,7 @@ const LoginForm = () => {
       <Link to="/signup" className="text-center block md:text-xl">
         Do not have an account? Create an account.
       </Link>
+      
     </div>
   );
 };

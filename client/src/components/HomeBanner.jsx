@@ -5,7 +5,7 @@ const HomeBanner = () => {
     <div className="bg-gray-800 md:h-[600px] flex justify-center h-[200px]">
       <div className="flex flex-col items-center md:gap-6 gap-3 dark:text-white md:my-40 my-10">
         <h1 className="md:text-8xl dark:text-white text-2xl">
-          The Blog.<sapn className="text-blue-500">.</sapn>.
+          The Blog.<span className="text-blue-500">.</span>.
         </h1>
         <p className="md:text-3xl">
           Let them <span className="text-blue-500">know</span> you and find your
