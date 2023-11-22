@@ -1,9 +1,29 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
+import axios from "axios";
 
 const Navbar = () => {
-  const { isLoggedIn, user } = useContext(UserContext);
+  const { isLoggedIn, user, setUser, setIsLoggedIn } = useContext(UserContext);
+
+  const logoutButtonClick = async () => {
+    try {
+      const res = await axios.get("http://localhost:4000/api/v1/users/logout", {
+        headers: {
+          "Content-Type": "application/json",
+        },
+        withCredentials: true,
+      });
+      if (res.data.success === true) {
+        setUser({});
+        setIsLoggedIn(false);
+        alert("You have been logged out successfully!");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
     <header className="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-4 dark:bg-gray-800">
       <nav
@@ -118,12 +138,12 @@ const Navbar = () => {
                   className="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 w-56 hidden z-10 mt-2 min-w-[15rem] bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700"
                   aria-labelledby="hs-dropdown-basic"
                 >
-                  <a
+                  <button
+                    onClick={logoutButtonClick}
                     className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300 dark:focus:bg-gray-700"
-                    href="#"
                   >
                     Logout
-                  </a>
+                  </button>
                 </div>
               </div>
             )}
