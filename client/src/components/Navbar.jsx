@@ -1,9 +1,10 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 import axios from "axios";
 
 const Navbar = () => {
+  const navigate = useNavigate();
   const { isLoggedIn, user, setUser, setIsLoggedIn } = useContext(UserContext);
 
   const logoutButtonClick = async () => {
@@ -18,6 +19,7 @@ const Navbar = () => {
         setUser({});
         setIsLoggedIn(false);
         alert("You have been logged out successfully!");
+        navigate("/");
       }
     } catch (error) {
       console.log(error.message);
