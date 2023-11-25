@@ -1,3 +1,4 @@
+import CreateBlogForm from "../components/CreateBlogForm";
 import DashboardLeftPanel from "../components/DashboardLeftPanel";
 
 const CreateBlog = () => {
@@ -9,6 +10,7 @@ const CreateBlog = () => {
           <div className="bg-gray-100 shadow-xl px-32 py-8  md:w-[1396px]">
             <h1 className="text-4xl">Create your blog</h1>
           </div>
+          <CreateBlogForm />
         </div>
       </div>
     </div>
