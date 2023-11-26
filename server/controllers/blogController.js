@@ -16,7 +16,7 @@ export const getAllBlogs = async (req, res, next) => {
 export const getLoggedInUserBlogs = async (req, res, next) => {
     try {
         const userId = req.user.id;
-        const blogs = await Blog.find({ user: userId });
+        const blogs = await Blog.find({ user: userId }).sort({ 'createdAt': -1 });
         res.status(200).json({
             success: true,
             blogs

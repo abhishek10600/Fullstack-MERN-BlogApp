@@ -1,19 +1,23 @@
-import { useContext } from "react";
-import { UserContext } from "../context/UserContext";
-
-const DashboardBlogsTableContent = () => {
-  const { user } = useContext(UserContext);
+const DashboardBlogsTableContent = ({ id, title, photos, createdAt }) => {
   return (
     <tr className="hover:bg-gray-100">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
-        Joe Black
-      </td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">31</td>
-      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-        <img className="w-56 h-auto" src={user.photo.secure_url} alt="..." />
+        {id}
       </td>
       <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
-        New York No. 1 Lake Park
+        {title}
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+        <div className="group flex-shrink-0 relative rounded-xl overflow-hidden w-56 sm:w-96 h-44 mx-auto">
+          <img
+            className="group-hover:scale-105 transition-transform duration-500 ease-in-out w-full h-full absolute top-0 start-0 object-cover rounded-xl"
+            src={photos.secure_url}
+            alt="..."
+          />
+        </div>
+      </td>
+      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800">
+        {createdAt}
       </td>
       <td className="py-4 whitespace-nowrap text-end text-sm font-medium flex gap-4 items-center md:h-[160px]">
         <button
