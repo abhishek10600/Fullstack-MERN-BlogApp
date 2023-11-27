@@ -10,6 +10,7 @@ import axios from "axios";
 import { UserContext } from "./context/UserContext";
 import Dashboard from "./pages/Dashboard";
 import CreateBlog from "./pages/CreateBlog";
+import EditBlog from "./pages/EditBlog";
 
 const App = () => {
   const { setUser, setIsLoggedIn } = useContext(UserContext);
@@ -40,7 +41,8 @@ const App = () => {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/createblog" element={<CreateBlog />} />
+        <Route path="/dashboard/createblog" element={<CreateBlog />} />
+        <Route path="/dashboard/editblog/:id" element={<EditBlog />} />
       </Routes>
       <Footer />
     </div>

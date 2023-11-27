@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const DashboardBlogsTableContent = ({ id, title, photos, createdAt }) => {
   return (
     <tr className="hover:bg-gray-100">
@@ -20,12 +22,13 @@ const DashboardBlogsTableContent = ({ id, title, photos, createdAt }) => {
         {createdAt}
       </td>
       <td className="py-4 whitespace-nowrap text-end text-sm font-medium flex gap-4 items-center md:h-[160px]">
-        <button
+        <Link
           type="button"
+          to={`/dashboard/editblog/${id}`}
           className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-blue-600 hover:text-blue-800 disabled:opacity-50 disabled:pointer-events-none"
         >
           Edit
-        </button>
+        </Link>
         <button
           type="button"
           className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-500 hover:text-red-800 disabled:opacity-50 disabled:pointer-events-none"

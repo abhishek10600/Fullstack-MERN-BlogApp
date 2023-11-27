@@ -13,6 +13,25 @@ export const getAllBlogs = async (req, res, next) => {
     }
 }
 
+export const getBlogById = async (req, res, next) => {
+    try {
+        const { blogId } = req.params;
+        const blog = await Blog.findById(blogId);
+        if (!blog) {
+            res.status(404).json({
+                success: false,
+                message: "Blog not found"
+            })
+        }
+        res.status(200).json({
+            success: true,
+            blog
+        })
+    } catch (error) {
+        return next(new Error(error.message));
+    }
+}
+
 export const getLoggedInUserBlogs = async (req, res, next) => {
     try {
         const userId = req.user.id;
