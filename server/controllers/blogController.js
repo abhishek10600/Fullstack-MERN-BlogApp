@@ -3,11 +3,20 @@ import { v2 as cloudinary } from "cloudinary";
 
 export const getAllBlogs = async (req, res, next) => {
     try {
-        const blogs = await Blog.find();
-        res.status(200).json({
-            success: true,
-            blogs
-        })
+        const { limit } = req.query;
+        if (!limit) {
+            const blogs = await Blog.find();
+            res.status(200).json({
+                success: true,
+                blogs
+            })
+        } else {
+            const blogs = await Blog.find().limit(limit);
+            res.status(200).json({
+                success: true,
+                blogs
+            })
+        }
     } catch (error) {
         return next(new Error(error.message));
     }

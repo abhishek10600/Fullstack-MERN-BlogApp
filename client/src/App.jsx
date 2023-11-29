@@ -11,6 +11,7 @@ import { UserContext } from "./context/UserContext";
 import Dashboard from "./pages/Dashboard";
 import CreateBlog from "./pages/CreateBlog";
 import EditBlog from "./pages/EditBlog";
+import BlogPage from "./pages/BlogPage";
 
 const App = () => {
   const { setUser, setIsLoggedIn } = useContext(UserContext);
@@ -38,6 +39,7 @@ const App = () => {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/blogs" element={<BlogsPage />} />
+        <Route path="/blog/:id" element={<BlogPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/dashboard" element={<Dashboard />} />

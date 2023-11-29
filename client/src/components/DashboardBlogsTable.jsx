@@ -3,6 +3,7 @@ import DashboardBlogsTableContent from "./DashboardBlogsTableContent";
 import axios from "axios";
 
 const DashboardBlogsTable = () => {
+  const [refresh, setRefresh] = useState(false);
   const [blogs, setBlogs] = useState([]);
   const getLoggedInUserBlogs = async () => {
     try {
@@ -24,7 +25,7 @@ const DashboardBlogsTable = () => {
   };
   useEffect(() => {
     getLoggedInUserBlogs();
-  }, []);
+  }, [refresh]);
   return (
     <div className="flex flex-col">
       <div className="-m-1.5 overflow-x-auto">
@@ -73,6 +74,7 @@ const DashboardBlogsTable = () => {
                     title={blog.title}
                     photos={blog.photos[0]}
                     createdAt={blog.createdAt}
+                    setRefresh={setRefresh}
                   />
                 ))}
               </tbody>

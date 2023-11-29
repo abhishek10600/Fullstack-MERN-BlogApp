@@ -1,6 +1,31 @@
 import { Link } from "react-router-dom";
+import axios from "axios";
 
-const DashboardBlogsTableContent = ({ id, title, photos, createdAt }) => {
+const DashboardBlogsTableContent = ({
+  id,
+  title,
+  photos,
+  createdAt,
+  setRefresh,
+}) => {
+  const deleteBlogButtonClicked = async (id) => {
+    try {
+      const res = await axios.delete(
+        `http://localhost:4000/api/v1/blogs/deleteBlog/${id}`,
+        {
+          withCredentials: true,
+        }
+      );
+      if (res.data.success === true) {
+        alert("blog deleted successfully.");
+        setRefresh((prev) => !prev);
+      } else {
+        alert("There was some error.");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
   return (
     <tr className="hover:bg-gray-100">
       <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800">
@@ -32,6 +57,7 @@ const DashboardBlogsTableContent = ({ id, title, photos, createdAt }) => {
         <button
           type="button"
           className="inline-flex items-center gap-x-2 text-sm font-semibold rounded-lg border border-transparent text-red-500 hover:text-red-800 disabled:opacity-50 disabled:pointer-events-none"
+          onClick={() => deleteBlogButtonClicked(id)}
         >
           Delete
         </button>
